@@ -19,7 +19,7 @@ public class Main {
         var yc = 0.113075;
         var zoom =  1.7E-4;
         var maxIterations = 300;
-        var imageSize = 8192;
+        var imageSize = 512;
 
         AMInfo info = new AMInfo(curTask, null);
 
