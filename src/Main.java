@@ -22,9 +22,6 @@ public class Main {
 
         AMInfo info = new AMInfo(curTask, null);
 
-        System.out.println("Start executing");
-        long startTime = System.nanoTime();
-
         List<channel> channels = new ArrayList<>();
         var columnCount = 4;
         var chunkSize = imageSize / columnCount;
