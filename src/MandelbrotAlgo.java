@@ -30,6 +30,8 @@ public class MandelbrotAlgo implements AM{
 //			ImageIO.write(resultImg, "jpg", baos);
 //		} catch (IOException e) {System.out.println("Exception");}
         
+        System.out.println(xc);
+        System.out.println(xChunk);
 
         info.parent.write(xChunk);
         info.parent.write(yChunk);
