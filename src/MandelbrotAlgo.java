@@ -2,6 +2,10 @@ import parcs.*;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 public class MandelbrotAlgo implements AM{
     public void run(AMInfo info)
@@ -19,11 +23,18 @@ public class MandelbrotAlgo implements AM{
         int chunkSize = info.parent.readInt();
 
         var resultImg = GetMandelbrotChunk(xc, yc, zoom, maxIter, imgSize, xChunk, yChunk, chunkSize);
+        //var resultImg = new BufferedImage(chunkSize, chunkSize, BufferedImage.TYPE_INT_RGB);
 
-        info.write(xChunk);
-        info.write(yChunk);
-        info.write(resultImg);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try {
+			ImageIO.write(resultImg, "png", baos);
+		} catch (IOException e) {/*ignored*/}
+        
 
+        info.parent.write(xChunk);
+        info.parent.write(yChunk);
+        info.parent.write(baos.toByteArray());
+     
         double estimatedTime = (double) (System.nanoTime() - startTime) / 1000000000;
         System.out.println("Time total (excluding IO): " + estimatedTime);
     }
@@ -39,7 +50,7 @@ public class MandelbrotAlgo implements AM{
 
         for (int x = 0; x < chunkSize; x++) {
             for (int y = 0; y < chunkSize; y++) {
-                c0.R = minX + ((xChunk + x) / (double)imgSize) * zoom;//Waiting for Krugliak
+                c0.R = minX + ((xChunk + x) / (double)imgSize) * zoom;
                 c0.I = minY + ((yChunk + y) / (double)imgSize) * zoom;
                 z0.R = 0;
                 z0.I = 0;
