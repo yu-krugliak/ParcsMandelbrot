@@ -14,6 +14,7 @@ public class Main {
 
         task curTask = new task();
         curTask.addJarFile("MandelbrotAlgo.jar");
+        System.out.println("Point 1");
 
         var xc = -0.74529;
         var yc = 0.113075;
@@ -26,6 +27,7 @@ public class Main {
         List<channel> channels = new ArrayList<>();
         var columnCount = 4;
         int chunkSize = imageSize / columnCount;
+        System.out.println("Point 2");
 
         for(int c = 0; c < columnCount; c++)
         {
@@ -45,7 +47,7 @@ public class Main {
                 channels.add(pointChannel);
             }
         }
-
+        System.out.println("Point 3");
         var fractalImage = new BufferedImage(imageSize, imageSize, BufferedImage.TYPE_INT_RGB);
         var graphics = fractalImage.getGraphics();
 
@@ -58,13 +60,14 @@ public class Main {
             var fractalChunk = (BufferedImage) channel.readObject();
             graphics.drawImage(fractalChunk, xChunk, yChunk, null);
         }
-
+        System.out.println("Point 4");
         File outputFile = new File("MandelbrotImage.jpg");
         ImageIO.write(fractalImage, "jpg", outputFile);
 
-
+        System.out.println("Point 5");
         double estimatedTime = (double) (System.nanoTime() - startTime) / 1000000000;
         System.out.println("Time total (excluding IO): " + estimatedTime);
+        System.out.println("Point 6");
 
         curTask.end();
     }
