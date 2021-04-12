@@ -20,5 +20,5 @@ MandelbrotAlgo.jar: out/parcs.jar src/*.java
 
 build: out/Main.jar out/MandelbrotAlgo.jar
 
-run: out/MandelbrotAlgo.jar
+run: out/Main.jar
 	@cd out && java -cp 'parcs.jar:Main.jar' Main
