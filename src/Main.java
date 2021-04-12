@@ -25,7 +25,7 @@ public class Main {
 
         List<channel> channels = new ArrayList<>();
         var columnCount = 4;
-        var chunkSize = imageSize / columnCount;
+        int chunkSize = imageSize / columnCount;
 
         for(int c = 0; c < columnCount; c++)
         {
