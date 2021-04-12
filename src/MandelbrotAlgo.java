@@ -22,8 +22,8 @@ public class MandelbrotAlgo implements AM{
         int yChunk = info.parent.readInt();
         int chunkSize = info.parent.readInt();
 
-        var resultImg = GetMandelbrotChunk(xc, yc, zoom, maxIter, imgSize, xChunk, yChunk, chunkSize);
-        //var resultImg = new BufferedImage(chunkSize, chunkSize, BufferedImage.TYPE_INT_RGB);
+        //var resultImg = GetMandelbrotChunk(xc, yc, zoom, maxIter, imgSize, xChunk, yChunk, chunkSize);
+        var resultImg = new BufferedImage(chunkSize, chunkSize, BufferedImage.TYPE_INT_RGB);
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         try {
