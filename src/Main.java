@@ -61,8 +61,8 @@ public class Main implements AM{
             pointChannel.write(zoom);
             pointChannel.write(maxIterations);
             pointChannel.write(imageSize);
-            pointChannel.write(0 * chunkSize);//Chunk x pos
-            pointChannel.write(0 * chunkSize);//Chunk y pos
+            pointChannel.write(100);//Chunk x pos
+            pointChannel.write(100);//Chunk y pos
             pointChannel.write(chunkSize);
             channels.add(pointChannel);
             
@@ -92,7 +92,7 @@ public class Main implements AM{
                 //var fractalChunk = ImageIO.read(is);
                 //graphics.drawImage(fractalChunk, xChunk, yChunk, null);
                 
-                System.out.printf("Processed chunk (%d, %d)", xChunk, yChunk);
+                System.out.println("Processed chunk (" + xChunk + ", " + yChunk + ")");
 //            	var cx = channel.readDouble();
 //            	System.out.println(cx);
             }
