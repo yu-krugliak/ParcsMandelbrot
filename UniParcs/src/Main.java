@@ -40,12 +40,13 @@ public class Main {
 
         List<List<Cell>> processedCells = new ArrayList<>();
         for (parcs.channel channel : channels) {
-            List<Cell> cellRow = (List<Cell>) channel.readObject();
-            processedCells.add(cellRow);
+            //List<Cell> cellRow = (List<Cell>) channel.readObject();
+            //processedCells.add(cellRow);
+            var testInt = channel.readInt();
+            System.out.println("Result " + testInt);
         }
-        var testInt = channels[0].readInt();
+        
 
-        System.out.println("Result " + testInt);
 //        BufferedImage processed = ImageMatrix.fromCells(processedCells).toBufferedImage();
 //        File outputfile = new File("processedImage.jpg");
 //        ImageIO.write(processed, "jpg", outputfile);
