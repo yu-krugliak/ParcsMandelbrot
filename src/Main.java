@@ -74,22 +74,22 @@ public class Main implements AM{
             for (parcs.channel channel : channels) {
                 //System.out.println("\n\n\n\n Processing article" + String.valueOf(i));
                 //System.out.println("Waiting for result...");
-            	System.out.println("Point 3.2");
-            	byte[] imgBytes = null;
-            	System.out.println("Point 3.2.1");
-                var xChunk = channel.readInt();
-                System.out.println("Point 3.2.2");
-                var yChunk = channel.readInt();
-                System.out.println("Point 3.3");
-                channel.read(imgBytes);
-                System.out.println("Point 3.4");
-                InputStream is = new ByteArrayInputStream(imgBytes);
-                System.out.println("Point 3.5");
-                
-                var fractalChunk = ImageIO.read(is);
-                graphics.drawImage(fractalChunk, xChunk, yChunk, null);
-                
-                System.out.printf("Processed chunk (%d, %d)", xChunk, yChunk);
+//            	System.out.println("Point 3.2");
+//            	byte[] imgBytes = null;
+//            	System.out.println("Point 3.2.1");
+//                var xChunk = channel.readInt();
+//                System.out.println("Point 3.2.2");
+//                var yChunk = channel.readInt();
+//                System.out.println("Point 3.3");
+//                channel.read(imgBytes);
+//                System.out.println("Point 3.4");
+//                InputStream is = new ByteArrayInputStream(imgBytes);
+//                System.out.println("Point 3.5");
+//                
+//                var fractalChunk = ImageIO.read(is);
+//                graphics.drawImage(fractalChunk, xChunk, yChunk, null);
+//                
+//                System.out.printf("Processed chunk (%d, %d)", xChunk, yChunk);
             }
             System.out.println("Point 4");
             File outputFile = new File("MandelbrotImage.jpg");
