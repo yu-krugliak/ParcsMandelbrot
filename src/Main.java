@@ -74,9 +74,9 @@ public static void main(String[] argc) {
             	System.out.println("Point 3.2");
             	
             	System.out.println("Point 3.2.1");
-                var xChunk = channel.readInt();
+                var xChunk = (int)channel.readObject();
                 System.out.println("Point 3.2.2");
-                var yChunk = channel.readInt();
+                var yChunk = (int)channel.readObject();
                 System.out.println("Point 3.3");
                 //var bytesLength = channel.readInt();
                // byte[] imgBytes = new byte[bytesLength];
