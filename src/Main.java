@@ -9,16 +9,13 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main implements AM{
-	public static void main(String[] args) {
-        task curtask = new task();
-        curtask.addJarFile("MandelbrotAlgo.jar");
-        (new Main()).run(new AMInfo(curtask, (channel)null));
-        curtask.end();
-    }
-	
-    public void run(AMInfo info) {
+public class Main{
+public static void main(String[] argc) {
     	try {
+    		task curtask = new task();
+    		curtask.addJarFile("MandelbrotAlgo.jar");
+    		var info = new AMInfo(curtask, (channel)null);
+    		
             System.out.println("Start executing");
             long startTime = System.nanoTime();
 
@@ -104,6 +101,8 @@ public class Main implements AM{
             double estimatedTime = (double) (System.nanoTime() - startTime) / 1000000000;
             System.out.println("Time total (excluding IO): " + estimatedTime);
             System.out.println("Point 6");
+            
+            curtask.end();
         }catch(IOException ex) {}
     }
 }
