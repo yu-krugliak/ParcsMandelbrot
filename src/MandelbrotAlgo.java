@@ -34,9 +34,9 @@ public class MandelbrotAlgo implements AM{
         info.parent.write(xChunk);
         info.parent.write(yChunk);
         
-        var imgBytes = baos.toByteArray();
-        info.parent.write(imgBytes.length);
-        info.parent.write(imgBytes);
+        //var imgBytes = baos.toByteArray();
+        //info.parent.write(imgBytes.length);
+        //info.parent.write(imgBytes);
         
         double estimatedTime = (double) (System.nanoTime() - startTime) / 1000000000;
         System.out.println("Time total (excluding IO): " + estimatedTime);

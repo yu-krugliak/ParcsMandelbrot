@@ -81,16 +81,16 @@ public class Main implements AM{
                 System.out.println("Point 3.2.2");
                 var yChunk = channel.readInt();
                 System.out.println("Point 3.3");
-                var bytesLength = channel.readInt();
-                byte[] imgBytes = new byte[bytesLength];
+                //var bytesLength = channel.readInt();
+               // byte[] imgBytes = new byte[bytesLength];
                 System.out.println("Point 3.5");
-                channel.read(imgBytes);
+                //channel.read(imgBytes);
                 System.out.println("Point 3.6");
-                InputStream is = new ByteArrayInputStream(imgBytes);
+                //InputStream is = new ByteArrayInputStream(imgBytes);
                 System.out.println("Point 3.7");
                 
-                var fractalChunk = ImageIO.read(is);
-                graphics.drawImage(fractalChunk, xChunk, yChunk, null);
+                //var fractalChunk = ImageIO.read(is);
+                //graphics.drawImage(fractalChunk, xChunk, yChunk, null);
                 
                 System.out.printf("Processed chunk (%d, %d)", xChunk, yChunk);
 //            	var cx = channel.readDouble();
