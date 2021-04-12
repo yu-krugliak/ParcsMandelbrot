@@ -28,7 +28,7 @@ public class MandelbrotAlgo implements AM{
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         try {
 			ImageIO.write(resultImg, "jpg", baos);
-		} catch (IOException e) {/*ignored*/}
+		} catch (IOException e) {System.out.println("Exception");}
         
 
         info.parent.write(xChunk);
