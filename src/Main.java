@@ -75,16 +75,19 @@ public class Main implements AM{
                 //System.out.println("\n\n\n\n Processing article" + String.valueOf(i));
                 System.out.println("Waiting for result...");
             	System.out.println("Point 3.2");
-            	byte[] imgBytes = null;
+            	
             	System.out.println("Point 3.2.1");
                 var xChunk = channel.readInt();
                 System.out.println("Point 3.2.2");
                 var yChunk = channel.readInt();
                 System.out.println("Point 3.3");
-                channel.read(imgBytes);
-                System.out.println("Point 3.4");
-                InputStream is = new ByteArrayInputStream(imgBytes);
+                var bytesLength = channel.readInt();
+                byte[] imgBytes = new byte[bytesLength];
                 System.out.println("Point 3.5");
+                channel.read(imgBytes);
+                System.out.println("Point 3.6");
+                InputStream is = new ByteArrayInputStream(imgBytes);
+                System.out.println("Point 3.7");
                 
                 var fractalChunk = ImageIO.read(is);
                 graphics.drawImage(fractalChunk, xChunk, yChunk, null);
