@@ -61,8 +61,8 @@ public class Main implements AM{
             pointChannel.write(zoom);
             pointChannel.write(maxIterations);
             pointChannel.write(imageSize);
-            pointChannel.write(c * chunkSize);//Chunk x pos
-            pointChannel.write(r * chunkSize);//Chunk y pos
+            pointChannel.write(0 * chunkSize);//Chunk x pos
+            pointChannel.write(0 * chunkSize);//Chunk y pos
             pointChannel.write(chunkSize);
             channels.add(pointChannel);
             
