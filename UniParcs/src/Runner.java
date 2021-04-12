@@ -9,17 +9,6 @@ public class Runner implements AM {
     @Override
     public void run(AMInfo info) {
     	var test = info.parent.readInt();
-//        List<Cell> row = (List<Cell>) info.parent.readObject();
-//        List<Cell> newRow = new ArrayList<>();
-//        for (Cell cell : row) {
-//            float[][] rMatrix = new float[8][8];
-//            float[][] gMatrix = new float[8][8];
-//            float[][] bMatrix = new float[8][8];
-//            cell.transform(rMatrix, gMatrix, bMatrix);
-//            cell = Cell.detransform(rMatrix, gMatrix, bMatrix);
-//            newRow.add(cell);
-//        }
-//        info.parent.write((Serializable) newRow);
     	info.parent.write(test);
     }
 }
