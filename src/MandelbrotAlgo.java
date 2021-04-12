@@ -13,7 +13,7 @@ public class MandelbrotAlgo implements AM{
         System.out.println("Start executing");
         long startTime = System.nanoTime();
 
-//        double xc = info.parent.readDouble();
+        double xc = info.parent.readDouble();
 //        double yc = info.parent.readDouble();
 //        double zoom = info.parent.readDouble();
 //        int maxIter = info.parent.readInt();
@@ -34,6 +34,8 @@ public class MandelbrotAlgo implements AM{
 //        info.parent.write(xChunk);
 //        info.parent.write(yChunk);
 //        info.parent.write(baos.toByteArray());
+        
+        info.parent.write(xc);
 //     
         double estimatedTime = (double) (System.nanoTime() - startTime) / 1000000000;
         System.out.println("Time total (excluding IO): " + estimatedTime);

@@ -90,6 +90,8 @@ public class Main implements AM{
 //                graphics.drawImage(fractalChunk, xChunk, yChunk, null);
 //                
 //                System.out.printf("Processed chunk (%d, %d)", xChunk, yChunk);
+            	var cx = channel.readDouble();
+            	System.out.println(cx);
             }
             System.out.println("Point 4");
             File outputFile = new File("MandelbrotImage.jpg");
