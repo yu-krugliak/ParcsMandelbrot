@@ -43,7 +43,7 @@ public class Main {
             List<Cell> cellRow = (List<Cell>) channel.readObject();
             processedCells.add(cellRow);
         }
-        var testInt = channel[0].readInt();
+        var testInt = channels[0].readInt();
 
         System.out.println("Result " + testInt);
 //        BufferedImage processed = ImageMatrix.fromCells(processedCells).toBufferedImage();
