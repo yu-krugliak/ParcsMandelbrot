@@ -27,7 +27,7 @@ public class MandelbrotAlgo implements AM{
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         try {
-			ImageIO.write(resultImg, "png", baos);
+			ImageIO.write(resultImg, "jpg", baos);
 		} catch (IOException e) {/*ignored*/}
         
 
@@ -65,7 +65,7 @@ public class MandelbrotAlgo implements AM{
 
                 var colorFactor = Math.abs(1.0 - (double) iterations / (double) maxIter);
                 int gray = (int)(colorFactor * 255);
-                var colorColor = Color.getHSBColor((float) (colorFactor * 359) , 100, (int)(colorFactor * 100));
+                //var colorColor = Color.getHSBColor((float) (colorFactor * 359) , 100, (int)(colorFactor * 100));
                 Color color = new Color(gray, gray, gray);
 
                 bufferedImage.setRGB(x, chunkSize - 1 - y, color.getRGB());
