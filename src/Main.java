@@ -34,7 +34,7 @@ public class Main implements AM{
             var columnCount = 4;
             int chunkSize = imageSize / columnCount;
             System.out.println("Point 2");
-
+            /*
             for(int c = 0; c < columnCount; c++)
             {
                 for (int r = 0; r < columnCount; r++)
@@ -52,7 +52,20 @@ public class Main implements AM{
                     pointChannel.write(chunkSize);
                     channels.add(pointChannel);
                 }
-            }
+            }*/
+            point infoPoint = info.createPoint();
+            channel pointChannel = infoPoint.createChannel();
+            infoPoint.execute("MandelbrotAlgo");
+            pointChannel.write(xc);
+            pointChannel.write(yc);
+            pointChannel.write(zoom);
+            pointChannel.write(maxIterations);
+            pointChannel.write(imageSize);
+            pointChannel.write(c * chunkSize);//Chunk x pos
+            pointChannel.write(r * chunkSize);//Chunk y pos
+            pointChannel.write(chunkSize);
+            channels.add(pointChannel);
+            
             System.out.println("Point 3");
             var fractalImage = new BufferedImage(imageSize, imageSize, BufferedImage.TYPE_INT_RGB);
             var graphics = fractalImage.getGraphics();
@@ -65,10 +78,11 @@ public class Main implements AM{
             	byte[] imgBytes = null;
                 var xChunk = channel.readInt();
                 var yChunk = channel.readInt();
-                channel.read(imgBytes);
-                
-                InputStream is = new ByteArrayInputStream(imgBytes);
                 System.out.println("Point 3.3");
+                channel.read(imgBytes);
+                System.out.println("Point 3.4");
+                InputStream is = new ByteArrayInputStream(imgBytes);
+                System.out.println("Point 3.5");
                 
                 var fractalChunk = ImageIO.read(is);
                 graphics.drawImage(fractalChunk, xChunk, yChunk, null);
