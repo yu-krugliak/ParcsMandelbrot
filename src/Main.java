@@ -2,8 +2,10 @@ import parcs.*;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,10 +57,17 @@ public class Main {
             //System.out.println("\n\n\n\n Processing article" + String.valueOf(i));
             //System.out.println("Waiting for result...");
 
+        	byte[] imgBytes = null;
             var xChunk = channel.readInt();
             var yChunk = channel.readInt();
-            var fractalChunk = (BufferedImage) channel.readObject();
+            channel.read(imgBytes);
+            
+            InputStream is = new ByteArrayInputStream(imgBytes);
+            
+            var fractalChunk = ImageIO.read(is);
             graphics.drawImage(fractalChunk, xChunk, yChunk, null);
+            
+            System.out.printf("Processed chunk (%d, %d)", xChunk, yChunk);
         }
         System.out.println("Point 4");
         File outputFile = new File("MandelbrotImage.jpg");
