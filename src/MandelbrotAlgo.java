@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 public class MandelbrotAlgo implements AM{
     public void run(AMInfo info)
     {
-        System.out.println("Start executing");
+//        System.out.println("Start executing");
         long startTime = System.nanoTime();
 
         double xc = info.parent.readDouble();
@@ -38,7 +38,7 @@ public class MandelbrotAlgo implements AM{
         info.parent.write(xc);
 //     
         double estimatedTime = (double) (System.nanoTime() - startTime) / 1000000000;
-        System.out.println("Time total (excluding IO): " + estimatedTime);
+//        System.out.println("Time total (excluding IO): " + estimatedTime);
     }
 
     public static BufferedImage GetMandelbrotChunk(double xc, double yc, double zoom, int maxIter, int imgSize, int xChunk, int yChunk, int chunkSize)
