@@ -33,7 +33,7 @@ public class Main {
         point p = info.createPoint();
         channel c = p.createChannel();
         p.execute("Runner");
-        c.write(100);
+        c.write("AAAAAAAAA");
         channels.add(c);
 
         System.out.println("Waiting for result...");
@@ -42,7 +42,7 @@ public class Main {
         for (parcs.channel channel : channels) {
             //List<Cell> cellRow = (List<Cell>) channel.readObject();
             //processedCells.add(cellRow);
-            var testInt = channel.readInt();
+            var testInt = (String)channel.readObject();
             System.out.println("Result " + testInt);
         }
         
