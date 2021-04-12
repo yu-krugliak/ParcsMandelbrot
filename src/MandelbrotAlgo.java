@@ -13,28 +13,28 @@ public class MandelbrotAlgo implements AM{
         System.out.println("Start executing");
         long startTime = System.nanoTime();
 
-        double xc = info.parent.readDouble();
-        double yc = info.parent.readDouble();
-        double zoom = info.parent.readDouble();
-        int maxIter = info.parent.readInt();
-        int imgSize = info.parent.readInt();
-        int xChunk = info.parent.readInt();
-        int yChunk = info.parent.readInt();
-        int chunkSize = info.parent.readInt();
-
-        //var resultImg = GetMandelbrotChunk(xc, yc, zoom, maxIter, imgSize, xChunk, yChunk, chunkSize);
-        var resultImg = new BufferedImage(chunkSize, chunkSize, BufferedImage.TYPE_INT_RGB);
-
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        try {
-			ImageIO.write(resultImg, "jpg", baos);
-		} catch (IOException e) {System.out.println("Exception");}
-        
-
-        info.parent.write(xChunk);
-        info.parent.write(yChunk);
-        info.parent.write(baos.toByteArray());
-     
+//        double xc = info.parent.readDouble();
+//        double yc = info.parent.readDouble();
+//        double zoom = info.parent.readDouble();
+//        int maxIter = info.parent.readInt();
+//        int imgSize = info.parent.readInt();
+//        int xChunk = info.parent.readInt();
+//        int yChunk = info.parent.readInt();
+//        int chunkSize = info.parent.readInt();
+//
+//        //var resultImg = GetMandelbrotChunk(xc, yc, zoom, maxIter, imgSize, xChunk, yChunk, chunkSize);
+//        var resultImg = new BufferedImage(chunkSize, chunkSize, BufferedImage.TYPE_INT_RGB);
+//
+//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//        try {
+//			ImageIO.write(resultImg, "jpg", baos);
+//		} catch (IOException e) {System.out.println("Exception");}
+//        
+//
+//        info.parent.write(xChunk);
+//        info.parent.write(yChunk);
+//        info.parent.write(baos.toByteArray());
+//     
         double estimatedTime = (double) (System.nanoTime() - startTime) / 1000000000;
         System.out.println("Time total (excluding IO): " + estimatedTime);
     }
