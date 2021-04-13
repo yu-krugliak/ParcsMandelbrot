@@ -31,7 +31,7 @@ public static void main(String[] argc) {
             var columnCount = 4;
             int chunkSize = imageSize / columnCount;
             System.out.println("Point 2");
-            /*
+
             for(int c = 0; c < columnCount; c++)
             {
                 for (int r = 0; r < columnCount; r++)
@@ -49,19 +49,8 @@ public static void main(String[] argc) {
                     pointChannel.write(chunkSize);
                     channels.add(pointChannel);
                 }
-            }*/
-            point infoPoint = info.createPoint();
-            channel pointChannel = infoPoint.createChannel();
-            infoPoint.execute("MandelbrotAlgo");
-            pointChannel.write(xc);
-            pointChannel.write(yc);
-            pointChannel.write(zoom);
-            pointChannel.write(maxIterations);
-            pointChannel.write(imageSize);
-            pointChannel.write(0);//Chunk x pos
-            pointChannel.write(0);//Chunk y pos
-            pointChannel.write(chunkSize);
-            channels.add(pointChannel);
+            }
+
             
             System.out.println("Point 3");
             var fractalImage = new BufferedImage(imageSize, imageSize, BufferedImage.TYPE_INT_RGB);
@@ -88,7 +77,7 @@ public static void main(String[] argc) {
                 
                 var fractalChunk = ImageIO.read(is);
                 graphics.drawImage(fractalChunk, xChunk, yChunk, null);
-                
+                ///home/ParcsMandelbrot/out/MandelbrotImage.jpg
                 System.out.println("Processed chunk (" + xChunk + ", " + yChunk + ")");
 //            	var cx = channel.readDouble();
 //            	System.out.println(cx);
