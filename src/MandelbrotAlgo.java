@@ -37,6 +37,7 @@ public class MandelbrotAlgo implements AM{
         info.parent.write(yChunk);
         
         var imgBytes = baos.toByteArray();
+        System.out.println(imgBytes);
         info.parent.write(imgBytes.length);
         info.parent.write(imgBytes);
         
