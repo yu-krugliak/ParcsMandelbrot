@@ -25,7 +25,7 @@ public static void main(String[] argc) {
             var yc = 0.113075;
             var zoom =  1.7E-4;
             var maxIterations = 300;
-            var imageSize = 2048;
+            var imageSize = 512;
 
             List<channel> channels = new ArrayList<>();
             var columnCount = 4;
