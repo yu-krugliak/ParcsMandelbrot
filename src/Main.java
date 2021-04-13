@@ -76,7 +76,7 @@ public static void main(String[] argc) {
                 System.out.println("Point 3.7");
                 
                 var fractalChunk = ImageIO.read(is);
-                graphics.drawImage(fractalChunk, xChunk, yChunk, null);
+                graphics.drawImage(fractalChunk, xChunk, imageSize-yChunk+chunkSize, null);
                 ///home/ParcsMandelbrot/out/MandelbrotImage.jpg
                 System.out.println("Processed chunk (" + xChunk + ", " + yChunk + ")");
 //            	var cx = channel.readDouble();
