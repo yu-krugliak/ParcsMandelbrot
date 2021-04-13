@@ -2,6 +2,8 @@ import parcs.*;
 //
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
+import java.awt.image.WritableRaster;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
@@ -35,8 +37,11 @@ public class MandelbrotAlgo implements AM{
 
         info.parent.write(xChunk);
         info.parent.write(yChunk);
-        
-        var imgBytes = baos.toByteArray();
+
+        WritableRaster raster = resultImg.getRaster();
+        DataBufferByte buffer = (DataBufferByte) raster.getDataBuffer();
+
+        var imgBytes = buffer.getData();
         System.out.println(imgBytes);
         info.parent.write(imgBytes.length);
         info.parent.write(imgBytes);
