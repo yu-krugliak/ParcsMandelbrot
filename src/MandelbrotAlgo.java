@@ -22,13 +22,13 @@ public class MandelbrotAlgo implements AM{
         int yChunk = info.parent.readInt();
         int chunkSize = info.parent.readInt();
 
-        //var resultImg = GetMandelbrotChunk(xc, yc, zoom, maxIter, imgSize, xChunk, yChunk, chunkSize);
-        //var resultImg = new BufferedImage(chunkSize, chunkSize, BufferedImage.TYPE_INT_RGB);
+        var resultImg = GetMandelbrotChunk(xc, yc, zoom, maxIter, imgSize, xChunk, yChunk, chunkSize);
+       // var resultImg = new BufferedImage(chunkSize, chunkSize, BufferedImage.TYPE_INT_RGB);
 
-//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//        try {
-//			ImageIO.write(resultImg, "jpg", baos);
-//		} catch (IOException e) {System.out.println("Exception");}
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try {
+			ImageIO.write(resultImg, "jpg", baos);
+		} catch (IOException e) {System.out.println("Exception");}
         
         System.out.println(xc);
         System.out.println(xChunk);
@@ -36,9 +36,9 @@ public class MandelbrotAlgo implements AM{
         info.parent.write(xChunk);
         info.parent.write(yChunk);
         
-        //var imgBytes = baos.toByteArray();
-        //info.parent.write(imgBytes.length);
-        //info.parent.write(imgBytes);
+        var imgBytes = baos.toByteArray();
+        info.parent.write(imgBytes.length);
+        info.parent.write(imgBytes);
         
         double estimatedTime = (double) (System.nanoTime() - startTime) / 1000000000;
         System.out.println("Time total (excluding IO): " + estimatedTime);

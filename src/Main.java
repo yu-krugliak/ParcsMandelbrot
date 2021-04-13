@@ -58,8 +58,8 @@ public static void main(String[] argc) {
             pointChannel.write(zoom);
             pointChannel.write(maxIterations);
             pointChannel.write(imageSize);
-            pointChannel.write(100);//Chunk x pos
-            pointChannel.write(100);//Chunk y pos
+            pointChannel.write(0);//Chunk x pos
+            pointChannel.write(0);//Chunk y pos
             pointChannel.write(chunkSize);
             channels.add(pointChannel);
             
@@ -78,16 +78,16 @@ public static void main(String[] argc) {
                 System.out.println("Point 3.2.2");
                 var yChunk = channel.readInt();
                 System.out.println("Point 3.3");
-                //var bytesLength = channel.readInt();
-               // byte[] imgBytes = new byte[bytesLength];
+                var bytesLength = channel.readInt();
+                byte[] imgBytes = new byte[bytesLength];
                 System.out.println("Point 3.5");
-                //channel.read(imgBytes);
+                channel.read(imgBytes);
                 System.out.println("Point 3.6");
-                //InputStream is = new ByteArrayInputStream(imgBytes);
+                InputStream is = new ByteArrayInputStream(imgBytes);
                 System.out.println("Point 3.7");
                 
-                //var fractalChunk = ImageIO.read(is);
-                //graphics.drawImage(fractalChunk, xChunk, yChunk, null);
+                var fractalChunk = ImageIO.read(is);
+                graphics.drawImage(fractalChunk, xChunk, yChunk, null);
                 
                 System.out.println("Processed chunk (" + xChunk + ", " + yChunk + ")");
 //            	var cx = channel.readDouble();
